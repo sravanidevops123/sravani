@@ -1,11 +1,11 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name:
+  name: nodeweb
 spec:
-  selector:
-    app: webserver
   ports:
+  - name: apachetomcat
     port: 8080
     targetPort: 8084
+
   type: LoadBalancer
