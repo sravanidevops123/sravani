@@ -32,6 +32,8 @@ pipeline {
                         sh "docker login -u 86681 -p ${dockerhubcred}"
                         sh "docker tag tomcat:8.0.53 86681/tomcat:8.0.53 "
                         sh 'docker push 86681/tomcat:8.0.53 '
+                        sh 'aws eks update-kubeconfig --name demo-eks'
+
                     }
                 }
             }
