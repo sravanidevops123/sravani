@@ -46,7 +46,27 @@ pipeline {
                             sh 'kubectl apply -f depolyment.yml '
                           }
                       }
-                  }  
+                  } 
+         stage ('eks'){
+                      
+                      steps {
+                          withKubeCredentials([
+[clusterName: 'demo-eks', contextName: "iam-root-account@demo-eks.ap-south-1.eksctl.io", credentialsId: "demo", namespace: "default", serverUrl: "https://6831BB996050BF074C9168021656AAFC.gr7.ap-south-1.eks.amazonaws.com"]
+])
+{
+     
+     script {
+         sh """
+          kubectl apply -f depolyment.yml
+          sleep 15 
+          kubectl get po 
+          
+          """
+     }
+     
+                      }
+                  }
+                }
                 }
             }
         
