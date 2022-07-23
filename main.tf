@@ -42,8 +42,3 @@ provisioner "local-exec" {
 output "my_publi_ip" {
   value = aws_instance.web.public_ip
 }
-variable "key_name" {
-  default="demo"
-}
-
-
