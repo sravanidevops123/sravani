@@ -38,7 +38,7 @@ provisioner "local-exec" {
   provisioner "remote-exec" {
     script="start tomcat.sh"
   }
-}
+
 output "my_publi_ip" {
   value = aws_instance.web.public_ip
 }
