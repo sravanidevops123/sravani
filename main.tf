@@ -23,14 +23,14 @@ provisioner "local-exec" {
     destination = "~/vtdemo.war"
   }
   
-  connection {
+  /* connection {
     type     = "ssh"
     user     = "ubuntu"
     #password = var.root_password
     private_key = file("demo.pem")
     host     = self.public_ip
   }
-  
+  */
   provisioner "remote-exec" {
     script="downloadtomcat&java.sh"
   }
