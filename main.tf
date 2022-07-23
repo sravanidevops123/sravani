@@ -12,7 +12,7 @@ resource "aws_instance" "awsinsta" {
   tags = {
     Name = "terraform"
   }
-}
+
 provisioner "local-exec" {
     when    = destroy
     command = "echo 'Destroy-time provisioner'"
@@ -23,14 +23,14 @@ provisioner "local-exec" {
     destination = "~/vtdemo.war"
   }
   
-  /* connection {
+   connection {
     type     = "ssh"
     user     = "ubuntu"
     #password = var.root_password
     private_key = file("demo.pem")
     host     = self.public_ip
   }
-  */
+  
   provisioner "remote-exec" {
     script="downloadtomcat&java.sh"
   }
@@ -38,6 +38,7 @@ provisioner "local-exec" {
   provisioner "remote-exec" {
     script="start tomcat.sh"
   }
+}
 
 output "my_publi_ip" {
   value = aws_instance.web.public_ip
