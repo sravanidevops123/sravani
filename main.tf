@@ -13,3 +13,30 @@ resource "aws_instance" "awsinsta" {
     Name = "terraform"
   }
 }
+provisioner "local-exec" {
+    when    = destroy
+    command = "echo 'Destroy-time provisioner'"
+  }
+  
+  provisioner "file" {
+    source      = "/target/vtdemo.war"
+    destination = "~/vtdemo.war"
+  }
+  
+  connection {
+    type     = "ssh"
+    user     = "ubuntu"
+    #password = var.root_password
+    private_key = file("demo.pem")
+    host     = self.public_ip
+  }
+  
+  provisioner "remote-exec" {
+    script="downloadjdk8Tomcat.sh"
+  }
+  
+  provisioner "remote-exec" {
+    script="deployAndStartTomcat.sh"
+  }
+}
+
