@@ -1,4 +1,4 @@
-sudo apt-get update -y && sudo apt-get install openjdk-8-jre-headless wget -y
+sudo apt update -y && sudo apt install openjdk-11-jdk wget -y
 sudo chown ubuntu:ubuntu /opt/
 
 
