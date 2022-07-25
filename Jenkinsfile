@@ -23,7 +23,7 @@ environment{
 		}
 	stage("Copying Private Key"){
 		steps{
-		withCredentials([file(credentialsId: 'terraform-new-jenkins-private-key	', variable: 'privateKey')]) {
+		withCredentials([file(credentialsId: 'terraform-new-jenkins-private-key', variable: 'privateKey')]) {
 	   		sh '''
 if [ -f "new-jenkins.pem" ]
 then
