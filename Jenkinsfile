@@ -57,11 +57,7 @@ fi
 			"""
 		}
 	}
-	post{
-	success{
-		archiveArtifacts 'target/*.war'
-	}
-}
+	
 	}
 }
 
