@@ -1,7 +1,5 @@
-sudo apt-get update
-sudo apt install default-jdk
-sudo apt install https://download.oracle.com/otn/java/jdk/8u202-b08/1961070e4c9b4e26a04e7f5a083f551e/jdk-8u202-linux-x64.rpm?AuthParam=1658759555_f55799326fe072a2ba18284b53cc979f
-sudo chown ubuntu:ubuntu /opt/
+sudo yum update -y && sudo yum install java-1.8.0-openjdk wget -y
+sudo chown ec2-user:ec2-user /opt/
 
 
 wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.41/bin/apache-tomcat-8.5.41.tar.gz &
