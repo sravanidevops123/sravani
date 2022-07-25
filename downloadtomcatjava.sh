@@ -1,4 +1,5 @@
 sudo apt update -y 
+sudo apt upgrade -y
 sudo apt install openjdk-11-jdk wget -y
 sudo chown ubuntu:ubuntu /opt/
 
