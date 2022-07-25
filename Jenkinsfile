@@ -10,7 +10,6 @@ environment{
 }
  tools {
     	maven 'maven-3.6.3'
-	jdk 'JDK8u221'
 	terraform 'terraform-0.14.5'
     }
 	stages{
