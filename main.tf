@@ -31,11 +31,11 @@ provisioner "local-exec" {
   }
   
   provisioner "remote-exec" {
-    script="downloadtomcat&java.sh"
+    script="downloadtomcatjava.sh"
   }
   
   provisioner "remote-exec" {
-    script="start tomcat.sh"
+    script="starttomcat.sh"
   }
 }
 
