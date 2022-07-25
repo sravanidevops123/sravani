@@ -1,4 +1,4 @@
-sudo yum update -y && sudo yum install java-1.8.0-openjdk wget -y
+sudo apt update -y && sudo apt install java-1.8.0-openjdk wget -y
 sudo chown ubuntu:ubuntu /opt/
 
 
