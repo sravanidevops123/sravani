@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "awsinsta" {
-  ami             = "- ami-044921b7897a7e0da"
+  ami             = "ami-044921b7897a7e0da"
   instance_type   = "t2.micro"
   security_groups = ["launch-wizard-1"]
   key_name        = "new-jenkins"
