@@ -56,7 +56,11 @@ fi
 			"""
 		}
 	}
-	
+	post{
+	success{
+		archiveArtifacts 'TestWebApp/target/*.war'
+	}
+	}
 	}
 }
 
