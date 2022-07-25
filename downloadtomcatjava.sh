@@ -1,4 +1,4 @@
-sudo apt-get update -y && sudo apt install java-1.8.0-openjdk wget -y
+sudo apt-get update -y && sudo apt-get install openjdk-8-jdk wget -y
 sudo chown ubuntu:ubuntu /opt/
 
 
