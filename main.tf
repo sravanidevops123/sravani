@@ -18,7 +18,7 @@ provisioner "local-exec" {
   }
   
   provisioner "file" {
-    source      = "/target/vtdemo.war"
+    source      = "target/vtdemo.war"
     destination = "~/vtdemo.war"
   }
   
