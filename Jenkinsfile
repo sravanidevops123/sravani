@@ -59,7 +59,7 @@ fi
 	}
 	post{
 	success{
-		archiveArtifacts 'TestWebApp/target/*.war'
+		archiveArtifacts 'target/*.war'
 	}
 }
 	}
