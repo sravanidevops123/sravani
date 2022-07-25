@@ -8,10 +8,7 @@ resource "aws_instance" "awsinsta" {
   instance_type   = "t2.micro"
   security_groups = ["launch-wizard-1"]
   key_name        = "new-jenkins"
-  tags = {
-    Name = "terraform"
-  }
-
+ 
 provisioner "local-exec" {
     when    = destroy
     command = "echo 'Destroy-time provisioner'"
@@ -37,6 +34,10 @@ provisioner "local-exec" {
   provisioner "remote-exec" {
     script="starttomcat.sh"
   }
+   tags = {
+    Name = "terraform"
+  }
+
 }
 
 output "my_publi_ip" {
