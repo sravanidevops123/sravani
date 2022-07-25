@@ -21,14 +21,14 @@ environment{
 		}
 	stage("Copying Private Key"){
 		steps{
-		withCredentials([file(credentialsId: 'myLap-pemkey', variable: 'privateKey')]) {
+		withCredentials([file(credentialsId: 'privatekey', variable: 'privateKey')]) {
 	   		sh '''
-if [ -f "myLap.pem" ]
+if [ -f "new-jenkins.pem" ]
 then
 echo "File found"
 else
-cat $privateKey > myLap.pem
-chmod 400 myLap.pem || true
+cat $privateKey > new-jenkins.pem
+chmod 400 new-jenkins.pem || true
 fi
 			
 			'''
