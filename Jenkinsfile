@@ -23,14 +23,16 @@ environment{
 	stage("credentials"){
 		steps{
 		withCredentials([file(credentialsId: 'terraform-new-jenkins-private-key', variable: 'privateKey')]) {
-	   		sh "
+	   		sh """
                            if [ -f "new-jenkins.pem" ]
 			    then
 				echo "File found"
 					else
 				cat $privateKey > new-jenkins.pem
 				chmod 400 new-jenkins.pem || true
-     				fi"
+     				fi
+				"""
+			
 		}			
 		}
 	}
