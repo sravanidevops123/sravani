@@ -39,7 +39,7 @@ environment{
 	stage("Terraform init"){
 		steps{
 			sh "terraform init"
-			sh "terrform plan"
+			sh "terraform plan"
 			
 				}
 	}
