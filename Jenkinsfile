@@ -13,7 +13,7 @@ environment{
 	terraform 'terraform-0.14.5'
     }
 	stages{
-  stage("Packaging"){
+  stage("Generating artifact"){
 		steps{
 			script{
 				
@@ -21,7 +21,7 @@ environment{
 		}
 		}
 		}
-	stage("Copying Private Key"){
+	stage("credentials"){
 		steps{
 		withCredentials([file(credentialsId: 'terraform-new-jenkins-private-key', variable: 'privateKey')]) {
 	   		sh '''
@@ -37,7 +37,7 @@ fi
 			}
 		}
 	}
-	stage("Terraform Plan"){
+	stage("Terraform init"){
 		steps{
 			sh '''	
 				alias tf="terraform"
