@@ -9,11 +9,6 @@ resource "aws_instance" "awsinsta" {
   security_groups = ["launch-wizard-1"]
   key_name        = "new-jenkins"
  
-provisioner "local-exec" {
-    when    = destroy
-    command = "echo 'Destroy-time provisioner'"
-  }
-  
   provisioner "file" {
     source      = "target/vtdemo.war"
     destination = "~/vtdemo.war"
