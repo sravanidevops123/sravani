@@ -7,10 +7,9 @@ environment{
 	AWS_SECRET_ACCESS_KEY = "${env.AWS_CREDS_PSW}"
 	
 }
- tools {
-    	maven 'maven-3.6.3'
-	terraform 'terraform-0.14.5'
-    }
+ tool 'maven'
+tool 'terraform'
+	
 	stages{
   stage("Generating artifact"){
 		steps{
