@@ -1,12 +1,12 @@
 provider "aws" {
-  region     = "ap-northeast-3"
+  region     = "ap-south-1"
   
 }
 
 resource "aws_instance" "awsinsta" {
   ami             = "ami-044921b7897a7e0da"
   instance_type   = "t2.micro"
-  security_groups = ["launch-wizard-1"]
+  security_groups = ["launch-wizard-2"]
   key_name        = "Ec2"
   tags = {
     Name = "TerraformOS"
