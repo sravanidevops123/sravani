@@ -15,7 +15,7 @@ resource "aws_instance" "awsinsta" {
  resource "local_file" "ip" {
     content  = aws_instance.awsinsta.public_ip
     filename = "ip.txt"
-}
+
 
 connection {
     type     = "ssh"
@@ -36,6 +36,6 @@ provisioner "remote-exec" {
  "ansible-playbook tomcat.yaml"
 ]
 }
-
+ }
   
 
