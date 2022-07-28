@@ -34,7 +34,7 @@ connection {
 provisioner "remote-exec" {
  inline = [
  "cd /root/ansible_terraform/aws_instance/",
- "ansible-playbook instance.yml"
+ "ansible-playbook tomcat.yaml"
 ]
 }
 
