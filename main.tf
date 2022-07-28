@@ -16,8 +16,7 @@ resource "aws_instance" "awsinsta" {
     content  = aws_instance.awsinsta.public_ip
     filename = "ip.txt"
 }
-resource "null_resource" "nullremote1" {
-depends_on = [aws_instance.awsinsta] 
+
 connection {
     type     = "ssh"
     user     = "ec2-user"
@@ -37,6 +36,6 @@ provisioner "remote-exec" {
  "ansible-playbook tomcat.yaml"
 ]
 }
-}
+
   
 
