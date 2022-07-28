@@ -12,7 +12,7 @@ resource "aws_instance" "awsinsta" {
     Name = "TerraformOS"
   }
 }
- resource "local_file" "ip" {
+ resource "local_sensitive_file" "ip" {
     content  = aws_instance.awsinsta.public_ip
     filename = "ip.txt"
 
