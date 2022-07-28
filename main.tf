@@ -16,7 +16,9 @@ resource "aws_instance" "awsinsta" {
     content  = aws_instance.awsinsta.public_ip
     filename = "ip.txt"
  }
-
+resource "null_resource" "nullremote1" {
+depends_on = [aws_instance.awsinsta] 
+depends_on = [aws_instance.awsinsta] 
 connection {
     type     = "ssh"
     user     = "ec2-user"
@@ -28,7 +30,7 @@ connection {
     source      = "ip.txt"
     destination = "/ec2-user/ansible_terraform/aws_instance/ip.txt"
        }
-
+}
 
 provisioner "remote-exec" {
  inline = [
