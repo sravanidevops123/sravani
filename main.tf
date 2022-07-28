@@ -15,7 +15,7 @@ resource "aws_instance" "awsinsta" {
  resource "local_sensitive_file" "ip" {
     content  = aws_instance.awsinsta.public_ip
     filename = "ip.txt"
-
+ }
 
 connection {
     type     = "ssh"
@@ -26,7 +26,7 @@ connection {
   }
   provisioner "file" {
     source      = "ip.txt"
-    destination = "/root/ansible_terraform/aws_instance/ip.txt"
+    destination = "/ec2-user/ansible_terraform/aws_instance/ip.txt"
        }
 
 
@@ -36,6 +36,6 @@ provisioner "remote-exec" {
  "ansible-playbook tomcat.yaml"
 ]
 }
- }
+ 
   
 
