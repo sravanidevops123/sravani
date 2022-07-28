@@ -18,7 +18,6 @@ resource "aws_instance" "awsinsta" {
  }
 resource "null_resource" "nullremote1" {
 depends_on = [aws_instance.awsinsta] 
-depends_on = [aws_instance.awsinsta] 
 connection {
     type     = "ssh"
     user     = "ec2-user"
