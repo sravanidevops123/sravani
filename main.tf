@@ -29,7 +29,6 @@ connection {
     source      = "ip.txt"
     destination = "/ec2-user/ansible_terraform/aws_instance/ip.txt"
        }
-}
 
 provisioner "remote-exec" {
  inline = [
@@ -37,6 +36,6 @@ provisioner "remote-exec" {
  "ansible-playbook tomcat.yaml"
 ]
 }
- 
+}
   
 
