@@ -1,7 +1,7 @@
 - name: Install Apache Tomcat10 using ansible
   hosts: localhost
   connection: local
-  remote_user: ubuntu
+  remote_user: ec2-user
   become: true
   tasks:
     - name: Update the System Packages
