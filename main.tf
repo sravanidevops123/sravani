@@ -17,7 +17,7 @@ resource "aws_instance" "awsinsta" {
 	  echo "${self.public_ip} ansible_user=ec2-user ansible_ssh_private_key_file=${var.key_name}.pem" > hosts;
     export ANSIBLE_HOST_KEY_CHECKING=False;
     cat hosts
-	  ansible-playbook -i hosts tomcat.yml
+	  ansible-playbook -i hosts tomcat.yaml
     EOT
   }
 }
