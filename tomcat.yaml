@@ -4,11 +4,6 @@
   remote_user: ec2-user
   become: true
   tasks:
-    - name: Update the System Packages
-      apt:
-        upgrade: yes
-        update_cache: yes
-
     - name: Create a Tomcat User
       user:
         name: tomcat
@@ -18,11 +13,9 @@
         name: tomcat
 
     - name: Install JAVA
-      apt:
-        name: default-jdk
+      yum:
+        name: java-1.8.0-openjdk
         state: present
-
-
     - name: Create a Tomcat Directory
       file:
         path: /opt/tomcat10
@@ -33,11 +26,10 @@
 
     - name: download & unarchive tomcat10
       unarchive:
-        src: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
+        src: https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.23/bin/apache-tomcat-10.0.23.tar.gz
         dest: /opt/tomcat10
         remote_src: yes
         extra_opts: [--strip-components=1]
-
     - name: Change ownership of tomcat directory
       file:
         path: /opt/tomcat10
@@ -46,7 +38,7 @@
         mode: "u+rwx,g+rx,o=rx"
         recurse: yes
         state: directory
-		 - name: Copy Tomcat service from local to remote
+    - name: Copy Tomcat service from local to remote
       copy:
         src: /opt/tomcat.service
         dest: /etc/systemd/system/
@@ -54,8 +46,8 @@
         remote_src: yes
     - name: Copy artifacts from local to remote
       copy:
-        src: /opt/cargo-tracker-1.0-20220710.093159-1.war
-        dest: /opt/tomcat10/webapps
+        src: /opt/vtdemo.war
+	dest: /opt/tomcat10/webapps
         mode: 0755
         remote_src: yes
     - name: Start and Enable Tomcat 10 on sever
