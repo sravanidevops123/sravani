@@ -24,12 +24,12 @@ environment{
 		steps{
 		withCredentials([file(credentialsId: 'private-key', variable: 'privateKey')]) {
 	   		sh """
-                           if [ -f "Ec2.pem" ]
+                           if [ -f "new-jenkins.pem" ]
 			    then
 				echo "File found"
 					else
-				cat $privateKey > Ec2.pem
-				chmod 400 Ec2.pem || true
+				cat $privateKey > new-jenkins.pem
+				chmod 400 new-jenkins.pem || true
      				fi
 				"""
 			
