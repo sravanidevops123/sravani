@@ -11,31 +11,13 @@ resource "aws_instance" "awsinsta" {
   tags = {
     Name = "TerraformOS"
   }
-}
- resource "local_sensitive_file" "ip" {
-    content  = aws_instance.awsinsta.public_ip
-    filename = "ip.txt"
- }
-resource "null_resource" "nullremote1" {
-depends_on = [aws_instance.awsinsta] 
-connection {
-    type     = "ssh"
-    user     = "ec2-user"
-    #password = var.root_password
-    private_key = file("Ec2.pem")
-    host     = self.public_ip
+ provisioner "local-exec" {
+    #when    = destroy
+    command = <<EOT
+	  echo "${self.public_ip} ansible_user=ec2-user ansible_ssh_private_key_file=${var.key_name}.pem" > hosts;
+    export ANSIBLE_HOST_KEY_CHECKING=False;
+    cat hosts
+	  ansible-playbook -i hosts tomcat.yml
+    EOT
   }
-  provisioner "file" {
-    source      = "ip.txt"
-    destination = "/ec2-user/ansible_terraform/aws_instance/ip.txt"
-       }
-
-provisioner "remote-exec" {
- inline = [
- "cd /root/ansible_terraform/aws_instance/",
- "ansible-playbook tomcat.yaml"
-]
 }
-}
-  
-
