@@ -65,7 +65,7 @@
       copy: 
         src: "{{ item }}"
         dest: "{{ tomcat_home_dir }}/webapps"
-      with_fileglob: "/target/*.war"
+      with_fileglob: "target/vtdemo.war"
       notify:
       - start tomcat
       - wait for start 
