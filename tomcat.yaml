@@ -7,11 +7,9 @@
     - name: Create a Tomcat User
       user:
         name: tomcat
-
     - name: Create a Tomcat Group
       group:
         name: tomcat
-
     - name: Install JAVA
       yum:
         name: java-1.8.0-openjdk
@@ -23,7 +21,6 @@
         group: tomcat
         mode: 755
         recurse: yes
-
     - name: download & unarchive tomcat10
       unarchive:
         src: https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.23/bin/apache-tomcat-10.0.23.tar.gz
