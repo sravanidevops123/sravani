@@ -9,7 +9,7 @@ resource "aws_instance" "awsinsta" {
   security_groups = ["launch-wizard-2"]
   key_name        = var.key_name
   tags = {
-    Name = "TerraformOS"
+    Name = "Terraform"
   }
  provisioner "local-exec" {
     #when    = destroy
