@@ -1,5 +1,5 @@
 - name: Install Apache Tomcat10 using ansible
-  hosts: localhost
+  hosts: all
   connection: local
   remote_user: ec2-user
   become: true
